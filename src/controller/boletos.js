@@ -8,7 +8,7 @@ module.exports = app => {
         const linhaNumerica = removeCaracteresEspeciais(linhaDigitavel);
 
         if (linhaNumerica.length !== 47) {
-            res.status(400).send('A linha digitável deve possuir 47 dígitos');
+            res.status(400).send({ erro: 'A linha digitável deve possuir 47 dígitos' });
             return;
         }
 
@@ -20,7 +20,7 @@ module.exports = app => {
         const linhaNumerica = removeCaracteresEspeciais(linhaDigitavel);
 
         if (linhaNumerica.length !== 48) {
-            res.status(400).send('A linha digitável deve possuir 48 dígitos');
+            res.status(400).send({ erro: 'A linha digitável deve possuir 48 dígitos' });
             return;
         }
 
