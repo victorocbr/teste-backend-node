@@ -79,7 +79,7 @@ module.exports = linhaDigitavel => {
         const valorInteiro = valorDocumento.substring(0, 8);
         const valorDecimal = valorDocumento.substring(8);
 
-        return Number(`${valorInteiro}.${valorDecimal}`);
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(`${valorInteiro}.${valorDecimal}`);
     };
 
     const multiplaCamposCodBarra = campos => {
@@ -152,7 +152,7 @@ module.exports = linhaDigitavel => {
 
     return {
         valido: validaCampos(),
-        valor: new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(calculaValor()),
+        valor: calculaValor(),
         vencimento: calculaVencimento(),
         codigoDeBarras: getCodigoDeBarras()
     };
