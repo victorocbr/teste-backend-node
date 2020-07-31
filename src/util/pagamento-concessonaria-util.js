@@ -1,6 +1,6 @@
 const moment = require('moment');
 const { modulo10, modulo11 } = require('./digito-verificador-util');
-const { formataParaReal } = require('./currency-util');
+const { formataParaReal } = require('./utils');
 const Boleto = require('../model/boleto');
 
 module.exports = linhaDigitavel => {
@@ -41,7 +41,6 @@ module.exports = linhaDigitavel => {
         } else {
             return null;
         }
-
     };
 
     calculaVencimento = () => {
