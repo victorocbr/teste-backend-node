@@ -15,7 +15,7 @@ module.exports = linhaDigitavel => {
     const DVGeral = linhaDigitavel.substring(3, 4);
     const codigoMoeda = campo1.substring(2, 3);
 
-    validaCampos = () => {
+    const validaCampos = () => {
         const [resultadoDV1, resultadoDV2, resultadoDV3, resultadoDV4] = [campo1, campo2, campo3, campo4].map(modulo10);
 
         let resultadoDVGeral;
@@ -29,7 +29,7 @@ module.exports = linhaDigitavel => {
         return resultadoDV1 === DV1 && resultadoDV2 === DV2 && resultadoDV3 === DV3 && resultadoDV4 === DV4 && resultadoDVGeral === DVGeral;
     };
 
-    calculaValor = () => {
+    const calculaValor = () => {
         if (codigoMoeda === '6' || codigoMoeda === '8') {
             const codigoDeBarras = getCodigoDeBarras().codigoComDigito;
             const valorDocumento = codigoDeBarras.substring(4, 15);
@@ -43,7 +43,7 @@ module.exports = linhaDigitavel => {
         }
     };
 
-    calculaVencimento = () => {
+    const calculaVencimento = () => {
         const identificacaoSegmento = campo1.substring(1, 2);
         const codigoDeBarras = getCodigoDeBarras().codigoComDigito;
 
@@ -56,7 +56,7 @@ module.exports = linhaDigitavel => {
         }
     };
 
-    getCodigoDeBarras = () => {
+    const getCodigoDeBarras = () => {
         const codigoComDigito = campo1 + campo2 + campo3 + campo4;
 
         const codigoSemDigito = codigoComDigito.substring(0, 3) + codigoComDigito.substring(4);
